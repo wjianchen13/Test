@@ -1,6 +1,7 @@
 # android studio多渠道打包基础配置
 
 ![API](https://img.shields.io/badge/API-15%2B-green) ![license](https://img.shields.io/badge/License-Apache%202.0-blue)
+
 android studio使用gradle作为构建工具，这里简单记录一下使用gradle进行多渠道打包的基础知识
 
 ## 配置flavorDimensions
