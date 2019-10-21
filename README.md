@@ -7,11 +7,11 @@
 
 ## 下载SDK压缩包
 下载Android SDK的压缩包，压缩包中的GDTActionSDK.min.x.x.x.jar文件为您的App需要嵌入的SDK  
-链接https://developers.e.qq.com/docs/user_actions/apply/convertion_app 的点击下载SDK和说明文档
+链接https://developers.e.qq.com/docs/user_actions/apply/convertion_app 的点击下载SDK和说明文档  
 
 ## android studio 导入方式
 找到您的App工程下的libs文件夹，将下载到的SDK的jar包GDTActionSDK.min.x.x.x.jar拷贝到该目录下。  
-然后在Android Studio中找到您的App所在的module目录，修改它的build.gradle文件，在dependencies下面添加SDK的依赖，如下所示。
+然后在Android Studio中找到您的App所在的module目录，修改它的build.gradle文件，在dependencies下面添加SDK的依赖，如下所示。  
 ```Groovy
 ...
 dependencies {
@@ -59,10 +59,10 @@ public class GDTActionApplication extends Application {
 }
 ```
 注意问题
-1.调用位置：GDTAction.init初始化方法，必须在Application类的onCreate方法中调用。否则SDK将无法成功初始化，也无法准确上报App的启动和激活行为。（从1.3.0版本开始，SDK的GDTAction.init接口不再需要获取动态权限，只需要确保调用位置正确。如果没有在指定位置调用init方法，SDK会输出错误日志。）
+1.调用位置：GDTAction.init初始化方法，必须在Application类的onCreate方法中调用。否则SDK将无法成功初始化，也无法准确上报App的启动和激活行为。（从1.3.0版本开始，SDK的GDTAction.init接口不再需要获取动态权限，只需要确保调用位置正确。如果没有在指定位置调用init方法，SDK会输出错误日志。）  
 2.调用顺序：GDTAction.init初始化方法，必须在GDTAction.logAction行为上报方法的调用之前成功调用，否则GDTAction.logAction不会上报行为。
 5.2 上报App启动
-找到Activity类（这里以GDTActionLauncherActivity类为例）的onResume()方法，调用下面的代码来上报App启动行为。
+找到Activity类（这里以GDTActionLauncherActivity类为例）的onResume()方法，调用下面的代码来上报App启动行为。  
 ```Java
 GDTAction.logAction(ActionType.START_APP); // 传入的actionType参数必须是ActionType.START_APP
 ```
